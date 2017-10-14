@@ -1,0 +1,19 @@
+    <!DOCTYPE html>
+    <html>
+        <head>
+            <meta charset="UTF-8" />
+            <meta name="viewport" content="width=device-width" />
+            <title>Random Word Generator</title>
+            {% load static %}
+            <link rel="stylesheet" href="{% static 'randword_app/css/main.css' %}" type="text/css" media="screen" title="no title" charset="utf-8">
+        </head>
+        <body>
+            <p>Random word (attempt #{{ attempt }})</p>
+            <h1>{{ randString }}</h1>
+            <form action="/random_word/generate" method="post">
+                {% csrf_token %}
+                <input type="submit" class="btn" value="Generate">
+            </form>
+            <a class="btn" href="/random_word/reset">Reset</a>
+        </body>
+    </html>
